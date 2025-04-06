@@ -15,6 +15,15 @@ export const AVAILABLE_MODELS: ModelOption[] = [
     description: 'A powerful 7B parameter model with strong instruction-following capabilities'
   },
   {
+    id: 'deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B',
+    name: 'DeepSeek Qwen',
+    description: ''
+  },{
+    id: 'sd-legacy/stable-diffusion-v1-5',
+    name: 'diffusion',
+    description: ''
+  },
+  {
     id: 'meta-llama/Llama-2-7b-chat-hf',
     name: 'Llama 2 7B Chat',
     description: 'Meta\'s Llama 2 model optimized for chat'
@@ -36,11 +45,11 @@ export async function generateHooksWithModel(
   modelId: string
 ): Promise<string[]> {
   try {
-    const prompt = `Generate 5 viral hooks for content about "${topic}". Each hook should be unique and compelling. Focus on creating curiosity, emotional impact, and value proposition. Format each hook on a new line.`;
+    // const prompt = `Generate 5 viral hooks for content about "${topic}". Each hook should be unique and compelling. Focus on creating curiosity, emotional impact, and value proposition. Format each hook on a new line.`;
 
     const response = await hf.textGeneration({
       model: modelId,
-      inputs: prompt,
+      inputs: topic,
       parameters: {
         max_new_tokens: 500,
         temperature: 0.7,
