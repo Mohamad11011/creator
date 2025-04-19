@@ -136,3 +136,15 @@
 .text-google {
   color: hsl(var(--google));
 }
+
+.group[data-collapsible="icon"] .generative-aside,
+.group[data-collapsible="icon"] .text-transparent{
+  opacity: 0; 
+  display:none;
+}
+
+.group[data-collapsible="icon"] .aside-header svg{
+  width:30px;
+  height:30px;
+  margin:0
+}

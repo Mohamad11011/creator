@@ -132,13 +132,21 @@ export const TextToCardsWidget = ({ selectedModel }: WidgetProps) => {
             {tones.map((toneOption) => (
               <div
                 key={toneOption}
-                onClick={() => setTone(toneOption)}
                 className={cn(
-                  "cursor-pointer text-center py-1.5 border hover:bg-primary/10",
-                  tone === toneOption && "bg-accent"
+                  "p-[1px]  inline-block",
+                  tone === toneOption &&
+                    "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-800"
                 )}
               >
-                {toneOption}
+                <div
+                  onClick={() => setTone(toneOption)}
+                  className={cn(
+                    "cursor-pointer text-center py-1.5 border hover:bg-primary/10",
+                    tone === toneOption && "bg-accent"
+                  )}
+                >
+                  {toneOption}
+                </div>
               </div>
             ))}
           </div>

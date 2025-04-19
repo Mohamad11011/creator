@@ -1,30 +1,42 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import {
   AudioWaveform,
   BookOpen,
   Bot,
   Command,
+  FastForwardIcon,
   Frame,
   GalleryVerticalEnd,
+  ImageDownIcon,
+  LightbulbIcon,
+  Linkedin,
+  LinkedinIcon,
   Map,
   PieChart,
+  SearchCheckIcon,
   Settings2,
+  Sparkle,
   SquareTerminal,
-} from "lucide-react"
+  TrendingUpIcon,
+  Tv2Icon,
+  ZapIcon,
+} from "lucide-react";
 
-import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
-import { NavUser } from "@/components/nav-user"
-import { TeamSwitcher } from "@/components/team-switcher"
+import { NavMain } from "@/components/nav-main";
+import { NavProjects } from "@/components/nav-projects";
+import { NavUser } from "@/components/nav-user";
+import { TeamSwitcher } from "@/components/team-switcher";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
+import Image from "next/image";
+import { FaLinkedin } from "react-icons/fa";
 
 // This is sample data.
 const data = {
@@ -52,13 +64,13 @@ const data = {
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "Hook Generator",
       url: "#",
-      icon: SquareTerminal,
+      icon: ZapIcon,
       isActive: true,
       items: [
         {
-          title: "History",
+          title: "Cards Integrator",
           url: "#",
         },
         {
@@ -66,15 +78,15 @@ const data = {
           url: "#",
         },
         {
-          title: "Settings",
+          title: "Viral",
           url: "#",
         },
       ],
     },
     {
-      title: "Models",
+      title: "Simulator",
       url: "#",
-      icon: Bot,
+      icon: Tv2Icon,
       items: [
         {
           title: "Genesis",
@@ -137,39 +149,52 @@ const data = {
       ],
     },
   ],
-  projects: [
+  features: [
     {
-      name: "Design Engineering",
+      name: "Image Art",
       url: "#",
-      icon: Frame,
+      icon: ImageDownIcon,
     },
     {
-      name: "Sales & Marketing",
+      name: "Speech Optimizer",
       url: "#",
-      icon: PieChart,
+      icon: TrendingUpIcon,
     },
     {
-      name: "Travel",
+      name: "LinkedIn Analyzer",
       url: "#",
-      icon: Map,
+      icon: SearchCheckIcon,
     },
   ],
-}
+};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props} variant="sidebar">
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        {/* <TeamSwitcher teams={data.teams} /> */}
+        <div className="flex items-center w-full px-2 aside-header">
+          <div className="text-3xl font-bold bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent">
+            Hook AI
+          </div>
+          <Sparkle className="stroke-pink-500 w-5 ml-2" />
+        </div>
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="pt-6">
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <NavProjects projects={data.features} />
+        <div className="px-4 py-6 generative-aside">
+          <button className=" opacity-85 hover:opacity-100 cursor-pointer w-full text-base py-1.5 flex items-center justify-center rounded-md bg-gradient-to-br from-purple-600 via-purple-600 to-purple-700">
+            Generative Section
+            <Sparkle className="w-4 ml-3" />
+          </button>
+        </div>
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        
+        {/* <NavUser user={data.user} /> */}
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }

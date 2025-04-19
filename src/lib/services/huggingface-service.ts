@@ -10,7 +10,7 @@ export interface ModelOption {
 
 export const AVAILABLE_MODELS: ModelOption[] = [
   {
-    id: 'mistralai/Mistral-7B-Instruct-v0.2',
+    id: 'mistralai/Mistral-7B-Instruct-v0.3',
     name: 'Mistral 7B',
     description: 'A powerful 7B parameter model with strong instruction-following capabilities'
   },
